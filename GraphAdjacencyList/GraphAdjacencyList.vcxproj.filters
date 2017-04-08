@@ -15,16 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="print_binnode.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="print_bintree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="print_compelement.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="print.h">
+    <ClInclude Include="GraphAdjacencyList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

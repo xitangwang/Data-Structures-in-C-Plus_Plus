@@ -37,7 +37,7 @@ template <typename T> BinNodePosi(T) randomPosiInBinTree(BinNodePosi(T) root)
 template <typename T>void testBinTree(int h) // ²âÊÔ¶þ²æÊ÷
 {
 	printf("\n ==== Test %2d.Generate a binTree of height <= %d \n", testID++, h);
-	BinTree<T> bt;print(bt);print(bt);
+	BinTree<T> bt;print(bt);
 	bt.insertAsRoot(dice(static_cast<T>(h) * h * h));print(bt);
 	randomBinTree(bt, bt.root(), h);print(bt);
 	printf("\n ==== Test %2d.Double and insrease all nodes by traversal\n", testID++);
@@ -66,8 +66,9 @@ template <typename T>void testBinTree(int h) // ²âÊÔ¶þ²æÊ÷
 
 int main(int argc,char* argv[])
 {
-	if (2 > argc) { printf("Usage:%s <size of test>\a\a\n", argv[0]);return 1; }
+	//if (2 > argc) { printf("Usage:%s <size of test>\a\a\n", argv[0]);return 1; }
 	srand(static_cast<unsigned int>(time(nullptr)));
-	testBinTree<int>(atoi(argv[1]));
+	testBinTree<int>(5);
+	cin.get();
 	return 0;
 }

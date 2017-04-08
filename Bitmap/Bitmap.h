@@ -50,6 +50,11 @@ public:
 	/*DSA*/
 	/*DSA*/   void print(int n) //逐位打印以检验位图内容，非必需接口
 		/*DSA*/ {
-		expand(n); for (int i = 0; i < n; i++) printf(test(i) ? "1" : "0");
+		expand(n); for (int i = 0; i < n; i++)
+		{
+			printf(test(i) ? "1" : "0");
+			if ((i + 1) % 8 == 0)
+				printf("\n");
+		}
 	}
 };

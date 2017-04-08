@@ -110,9 +110,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\杂项\print.h" />
+    <ClInclude Include="print.h" />
     <ClInclude Include="print_binnode.h" />
     <ClInclude Include="print_bintree.h" />
+    <ClInclude Include="print_compelement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

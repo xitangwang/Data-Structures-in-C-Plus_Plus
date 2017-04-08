@@ -15,17 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="print_binnode.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="print_bintree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="print_compelement.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="print.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="Range.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

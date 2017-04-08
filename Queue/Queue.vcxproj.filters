@@ -15,16 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="print_binnode.h">
+    <ClCompile Include="Queue.cpp">
       <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="print_bintree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="print_compelement.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="print.h">
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Queue.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

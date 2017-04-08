@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FB8D5574-0D44-4AA5-84B9-61DE4CF86B26}</ProjectGuid>
-    <RootNamespace>Bitmap</RootNamespace>
+    <ProjectGuid>{7DCEDEBD-1320-4B4A-98A9-BAA6E7C4246B}</ProjectGuid>
+    <RootNamespace>Huffman</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -110,11 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Bitmap.h" />
-    <ClInclude Include="Bitmap1.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="Huffman.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

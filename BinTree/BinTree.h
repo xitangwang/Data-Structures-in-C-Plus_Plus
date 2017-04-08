@@ -10,6 +10,7 @@
 #include "BinNode.h"
 #include "../stack/Stack@list.h"
 #include <stack>
+#include "../Queue/Queue.h"
 
 template <typename T> class BinTree
 {
@@ -35,7 +36,7 @@ public:
 	BinTree<T>* secede(BinNodePosi(T) x);
 
 	//树的遍历
-	template <typename VST> 
+	template <typename VST>
 	void travLevel(VST& visit) { if (_root) _root->travLevel(visit); }
 	template <typename VST>
 	void travPre(VST& visit) { if (_root) _root->travPre(visit); }
@@ -48,10 +49,7 @@ public:
 	bool operator<(BinTree<T> const& t) { return _root && t._root && lt(_root, t._root); }
 	bool operator==(BinTree<T> const& t) { return _root && t._root && (_root == t._root); }
 
-
-
 private:
-
 };
 
 template <typename T>
@@ -94,7 +92,7 @@ BinNodePosi(T) BinTree<T>::insertAsRoot(T const & e)
 }
 
 template <typename T>
-BinNodePosi(T) BinTree<T>::insertAsLC(BinNodePosi(T) x,T const & e)
+BinNodePosi(T) BinTree<T>::insertAsLC(BinNodePosi(T) x, T const & e)
 {
 	_size++;
 	x->insertAsLC(e);
@@ -139,9 +137,9 @@ int BinTree<T>::remove(BinNode<T>* x)
 	FromParentTo(*x) = nullptr;
 	updateHeightAbove(x->parent);
 	int n = removeAt(x);_size -= n;return n;
-
 }
-//O(release)*O(x->_size)
+
+//O(release) * O(x->_size)
 template<typename T>
 static int  removeAt(BinNodePosi(T) x)
 {
@@ -160,10 +158,9 @@ BinTree<T>* BinTree<T>::secede(BinNode<T>* x)
 	S->_size = x->size();_size -= S->_size;return S;
 }
 
-
 //递归遍历	T(n) = O(1) + T(a) + T(n - a -1) = O(n)但是递归方法空间复杂度较大会耗费大量资源，到一定运算量时就会到达瓶颈
-template <typename T,typename VST>
-void travPre_R(BinNodePosi(T) x,VST& visit)
+template <typename T, typename VST>
+void travPre_R(BinNodePosi(T) x, VST& visit)
 {
 	if (!x)return;
 	visit(x->data);
@@ -171,8 +168,8 @@ void travPre_R(BinNodePosi(T) x,VST& visit)
 	travPre_R(x->rChild, visit);
 }
 
-template <typename T,typename VST>
-void travPost_R(BinNodePosi(T) x,VST& visit)
+template <typename T, typename VST>
+void travPost_R(BinNodePosi(T) x, VST& visit)
 {
 	if (!x)return;
 	travPost_R(x->lChild, visit);
@@ -180,8 +177,8 @@ void travPost_R(BinNodePosi(T) x,VST& visit)
 	visit(x->data);
 }
 
-template <typename T,typename VST>
-void travIn_R(BinNodePosi(T) x,VST& visit)
+template <typename T, typename VST>
+void travIn_R(BinNodePosi(T) x, VST& visit)
 {
 	if (!x)return;
 	travIn_R(x->lChild, visit);
@@ -189,17 +186,17 @@ void travIn_R(BinNodePosi(T) x,VST& visit)
 	travIn_R(x->rChild, visit);
 }
 
-
 //迭代遍历	O(_size)
-template <typename T,typename VST>
-void travPre_L(BinNodePosi(T) x,VST& visit)
+template <typename T, typename VST>
+void travPre_L(BinNodePosi(T) x, VST& visit)
 {
+	if (!x)return;
 	while (true)
 	{
 		Stack < BinNodePosi(T)> nodeStack;
-		if(x)
+		if (x)
 			nodeStack.push(x);
-		while(!nodeStack.empty())
+		while (!nodeStack.empty())
 		{
 			x = nodeStack.pop();
 			visit(x->data);
@@ -212,10 +209,10 @@ void travPre_L(BinNodePosi(T) x,VST& visit)
 }
 
 //遍历左节点的例程
-template <typename T,typename VST>
-void visitAlongLeftBranch(BinNodePosi(T) x,VST& visit,Stack<BinNodePosi(T)> & stack)
+template <typename T, typename VST>
+void visitAlongLeftBranch(BinNodePosi(T) x, VST& visit, Stack<BinNodePosi(T)> & stack)
 {
-	while(x)
+	while (x)
 	{
 		visit(x->data);
 		stack.push(x->rChild);
@@ -223,30 +220,32 @@ void visitAlongLeftBranch(BinNodePosi(T) x,VST& visit,Stack<BinNodePosi(T)> & st
 	}
 }
 
-template <typename T,typename VST>
-void travPre_L2(BinNodePosi(T) x,VST& visit)
+template <typename T, typename VST>
+void travPre_L2(BinNodePosi(T) x, VST& visit)
 {
+	if (!x)return;
 	Stack<BinNodePosi(T)> stack;stack.push(x);
-	while(!stack.empty())
+	while (!stack.empty())
 	{
 		x = stack.pop();
 		visitAlongLeftBranch(x, visit, stack);
 	}
 }
 
-template <typename T,typename VST>
-void goAlongLeftBranck(BinNodePosi(T) x,VST& visit,Stack<BinNodePosi(T)> stack)
+template <typename T, typename VST>
+void goAlongLeftBranck(BinNodePosi(T) x, VST& visit, Stack<BinNodePosi(T)> stack)
 {
-	while(x)
+	while (x)
 	{
 		stack.push(x);
 		x = x->lChild;
 	}
 }
 
-template <typename T,typename VST>
-void travIn_L(BinNodePosi(T) x,VST& visit)
+template <typename T, typename VST>
+void travIn_L(BinNodePosi(T) x, VST& visit)
 {
+	if (!x)return;
 	Stack<BinNodePosi(T)> stack;
 	while (true)
 	{
@@ -259,15 +258,44 @@ void travIn_L(BinNodePosi(T) x,VST& visit)
 	}
 }
 
-template <typename T,typename  VST>
-void travLevel_L(BinNodePosi(T) x,VST& visit)
+template <typename T, typename VST>
+void travIn_I3(BinNodePosi(T) x, VST& visit) // 二叉树中序遍历（#迭代3，无需辅助栈）
 {
-	Stack<BinNodePosi(T)> stack;
-	stack.push(x);
-	while(!stack.empty())
+	bool backtrack = false; // 前一步是否刚从右子树回溯——省去栈，仅O(1)辅助空间
+	while (true)
 	{
-		x = stack.deduplicate();visit(x->data);
-		if (HasLChild(*x)) stack.push(x->lChild);
-		if (HasRChild(*x)) stack.push(x->rChild);
+		if (!backtrack && HasLChild(*x))
+		{
+			x = x->lChild;
+		}
+		else
+		{
+			visit(x->data);
+		}
+		if (HasRChild(*x))
+		{
+			x = x->rChild;
+			backtrack = false;
+		}
+		else
+		{
+			if (!(x = x->succ()))
+				break;
+			backtrack = true;
+		}
+	}
+}
+
+template <typename T, typename  VST>
+void travLevel_L(BinNodePosi(T) x, VST& visit)
+{
+	if (!x)return;
+	Queue<BinNodePosi(T)> Q;
+	Q.enqueue(x);
+	while (!Q.empty())
+	{
+		x = Q.dequeue();visit(x->data);
+		if (HasLChild(*x)) Q.enqueue(x->lChild);
+		if (HasRChild(*x)) Q.enqueue(x->rChild);
 	}
 }

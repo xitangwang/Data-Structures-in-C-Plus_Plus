@@ -50,7 +50,6 @@ typedef enum { RB_RED, RB_BLACK } RBColor;	//红黑数节点颜色
 
 template <typename T> struct BinNode
 {
-
 	T data;
 	BinNodePosi(T) parent; BinNodePosi(T) lChild; BinNodePosi(T) rChild;
 	int height;
@@ -63,11 +62,17 @@ template <typename T> struct BinNode
 		:data(e), parent(p), lChild(lc), rChild(rc), height(h), npl(l), color(c) {}
 
 	//操作接口
-	int size();
+	int size()
+	{
+		int s = 1;
+		if (lChild) s += lChild->size();
+		if (rChild) s += rChild->size();
+		return s;
+	}
 	BinNodePosi(T) insertAsLC(T const& e) { return lChild = new BinNode(e, this); }
 	BinNodePosi(T) insertAsRC(T const& e) { return rChild = new BinNode(e, this); }
 	//取当前节点的直接后继
-	BinNodePosi(T) succ();	
+	BinNodePosi(T) succ();
 	//子树层次遍历
 	template <typename VST> void travLevel(VST & visit)
 	{
@@ -98,10 +103,12 @@ template <typename T> struct BinNode
 		}
 	}
 	//子树中续遍历
-	template <typename VST> void travPost(VST &);
+	template <typename VST> void travPost(VST & visit)
+	{
+		travPost_R(this, visit);
+	}
 
 	//比较器、判断器
 	bool operator<(BinNode const & bn) { return data < bn.data; }
 	bool operator==(BinNode const & bn) { return data == bn.data; }
-
 };

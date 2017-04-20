@@ -61,6 +61,16 @@ template <typename T> struct BinNode
 	BinNode(T e, BinNodePosi(T) p = nullptr, BinNodePosi(T) lc = nullptr, BinNodePosi(T) rc = nullptr, int h = 0, int l = 1, RBColor c = RB_RED)
 		:data(e), parent(p), lChild(lc), rChild(rc), height(h), npl(l), color(c) {}
 
+	int depth()
+	{
+		int i = 0;BinNodePosi(T) s = this;
+		while(s != nullptr)
+		{
+			++i;s = s->parent;
+		}
+		return i;
+	}
+
 	//操作接口
 	int size()
 	{
@@ -72,7 +82,39 @@ template <typename T> struct BinNode
 	BinNodePosi(T) insertAsLC(T const& e) { return lChild = new BinNode(e, this); }
 	BinNodePosi(T) insertAsRC(T const& e) { return rChild = new BinNode(e, this); }
 	//取当前节点的直接后继
-	BinNodePosi(T) succ();
+	BinNodePosi(T) succ()
+	{
+		BinNodePosi(T) s = this;
+		if(HasRChild(*s))
+		{
+			s = s->rChild;
+			while (HasLChild(*s)) s = s->lChild;
+		}
+		else
+		{
+			while (IsRChild(*s)) s = s->parent;
+			s = s->parent;
+		}
+		return s;
+	}
+
+	//取当前节点的直接前驱
+	BinNodePosi(T) pred()
+	{
+		BinNodePosi(T) s = this;
+		if(HasLChild(*s))
+		{
+			s = s->lChild;
+			while (HasRChild(*s)) s = s->rChild;
+		}
+		else
+		{
+			while (IsLChild(*s)) s = s->parent;
+			s = s->parent;
+		}
+		return s;
+	}
+
 	//子树层次遍历
 	template <typename VST> void travLevel(VST & visit)
 	{
@@ -106,6 +148,24 @@ template <typename T> struct BinNode
 	template <typename VST> void travPost(VST & visit)
 	{
 		travPost_R(this, visit);
+	}
+
+	BinNodePosi(T) zig()
+	{
+		BinNodePosi(T) v = this;
+		BinNodePosi(T) c = v->lChild;
+		c->parent = v->parent;v->parent = c;
+		v->lChild = c->rChild;
+		return c;
+	}
+
+	BinNodePosi(T) zag()
+	{
+		BinNodePosi(T) v = this;
+		BinNodePosi(T) c = v->rChild;
+		c->parent = v->parent;v->parent = c;
+		v->rChild = c->lChild;
+		return c;
 	}
 
 	//比较器、判断器

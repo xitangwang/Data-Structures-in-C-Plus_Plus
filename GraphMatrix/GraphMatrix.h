@@ -29,7 +29,7 @@ template <typename Te> struct Edge // 边对象（为简化起见，并未严格封装）
 	Edge(Te const& d, int w) :data(d), weight(w), type(UNETERMINED) {  } // 构造
 };
 
-template <typename Tv,typename Te> 
+template <typename Tv,typename Te>
 class GraphMatrix :public Graph<Tv, Te> // 基于vector一邻接矩阵方式实现的图
 {
 private:

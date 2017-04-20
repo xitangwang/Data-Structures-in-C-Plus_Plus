@@ -9,6 +9,7 @@
 #include "../stack/Stack@list.h"
 #include "../Queue/Queue.h"
 #include <climits>
+#include "GraphMatrix.h"
 
 typedef enum { UNDISCOVERED, DISCOVERED, VISITED } VStatus; // 顶点状态
 typedef enum { UNETERMINED, TREE, CROSS, FORWORD, BACKWORD } EType; // 边在遍历树中所属的类型
@@ -348,7 +349,7 @@ public:
 	}
 
 // 图的特例，树的算法 习题[6-10]
-
+	                         
 	Stack<int> DIA() // 直径（即相隔最远的两个顶点的通路）
 	{
 		Stack<int> Dia;
@@ -418,4 +419,17 @@ public:
 		}while (s != (v = (++v % n))); // 循环一遍再倒回来时结束
 		return true;
 	}
+
+// Joseph Kruskal 的极小支撑树算法 习题[6-29] - [6-31]
+	List<Edge<Te>> SortEdge()
+	{
+		
+	}
+
+	void Kruakal(List<Edge<Te>> list)
+	{
+		
+	}
+
+
 };

@@ -75,26 +75,6 @@ Memory: 256 MB
 #include<cstdio>
 #include <cstdlib>
 
-void sort(int a[], int n)
-{
-	bool sorted = false;
-	while (!sorted)
-	{
-		sorted = true;
-		for (int i =  1; i < n; i++)
-		{
-			if (a[i - 1] > a[i])
-			{
-				int temp = a[i - 1];
-				a[i - 1] = a[i];
-				a[i] = temp;
-				sorted = false;
-			}
-		}
-		n--;
-	}
-}
-
 void Range()
 {
 	int numCount;
@@ -109,21 +89,14 @@ void Range()
 		scanf("%d", &range[i][0]);scanf("%d", &range[i][1]);
 	}
 
-	sort(num, numCount);
-
 	for (int i = 0;i < time;++i)
 	{
-		int count = numCount;
+		int count = 0;
 		for (int j = 0; j < numCount; ++j)
 		{
-			if (num[j] < range[i][0])
-				--count;
-			if (num[numCount - j - 1] > range[i][1])
-				--count;
-			if (num[j] >= range[i][0] && num[numCount - j - 1] <= range[i][1])
-				break;
+			if (num[j] >= range[i][0] && num[j] <= range[i][1])
+				++count;
 		}
-
 		printf("%d\n",count);
 	}
 }

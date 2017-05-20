@@ -4,6 +4,7 @@
 * @author 西唐王, xtwyzh@gmail.com, xtwroot.com
 * xtwroot Copyright (c) 2017. All rights reserved.
 ******************************************************************************************/
+#include<vector>
 
 void RandomGeneration(int n) // 随机生成
 {
@@ -15,5 +16,7 @@ void RandomGeneration(int n) // 随机生成
 
 void RandomComposition(int n) // 随机组成
 {
-	
+	std::vector<int> vector;
+	vector.push_back(1);
+
 }

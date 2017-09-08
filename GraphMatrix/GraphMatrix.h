@@ -15,7 +15,7 @@
 
 template <typename Tv> struct Vertex // 顶点对象（为简化起见，并未严格封装）
 {
-	Tv data;int inDegree, outDegree, VStatus, status; // 数据，出入度数，状态
+	Tv data;int inDegree, outDegree; VStatus status; // 数据，出入度数，状态
 	int dTime, fTime; // 时间标签
 	int parent;int priority; // 在遍历树中的父节点，优先级数
 	Vertex(Tv const& d = (Tv)0) :
@@ -109,5 +109,4 @@ public:
 		e--;V[i].outDegree--;V[j].inDegree--; // 更新边计数与关联顶点的度数
 		return eBak;
 	}
-
 };

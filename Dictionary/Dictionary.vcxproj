@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{17433C5F-14E3-42D3-8C82-3031994868F7}</ProjectGuid>
-    <RootNamespace>UniPrint</RootNamespace>
+    <ProjectGuid>{9B2009B1-1E22-4AA7-926A-16E477E13CF2}</ProjectGuid>
+    <RootNamespace>Dictionary</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -110,11 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="print.h" />
-    <ClInclude Include="print_binnode.h" />
-    <ClInclude Include="print_bintree.h" />
-    <ClInclude Include="print_btree.h" />
-    <ClInclude Include="print_compelement.h" />
+    <ClInclude Include="Dictionary.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

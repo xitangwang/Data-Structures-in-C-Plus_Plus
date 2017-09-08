@@ -48,7 +48,7 @@ protected:
 		u->child[_order - s - 1] = v->child.remove(s + 1); // 移动v最靠右的孩子
 		if (u->child[0]) // 若u的孩子们非空，则
 			for (Rank j = 0; j < _order; ++j)
-				u->child[j]->praent = u;
+				u->child[j]->parent = u;
 		BTNodePosi(T) p = v->parent; // v当前的父节点p
 		if (!p) { _root = p = new  BTNode<T>(); p->child[0] = v; v->parent = p; } // 若p为空则创建之
 		Rank r = 1 + p->key.serach(v->key[0]); // p中指向u的指针的秩
@@ -58,7 +58,7 @@ protected:
 	}
 	void solveUnderflow(BTNodePosi(T) v) // 因删除而下溢之后的合并处理
 	{
-		if ((_order + 1) / 2 <= v->child / size()) return; // 递归基：当前节点并未下溢
+		if ((_order + 1) / 2 <= (v->child.size())) return; // 递归基：当前节点并未下溢
 		BTNodePosi(T) p = v->parent;
 		if(!p) // 递归基：已到根节点，没有孩子的下限
 		{
@@ -151,9 +151,9 @@ public:
 			release(_root);
 	}
 
-	int const order() { return _order; } // 阶次
+	int order() const { return _order; } // 阶次
 
-	int const size() { return _size; } // 规模
+	int size() const { return _size; } // 规模
 
 	BTNodePosi(T) & root() { return _root; } // 树根
 	

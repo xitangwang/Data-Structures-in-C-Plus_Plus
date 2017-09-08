@@ -11,6 +11,11 @@
 #include <typeinfo>
 #include "../BinTree/BinTree.h"
 #include"../Bitmap/Bitmap.h"
+#include "../BST/BST.h"
+#include "../AVL/AVL.h"
+#include "../Splay/Splay.h"
+#include "../GraphMatrix/GraphMatrix.h"
+#include "../B_Tree/BTree.h"
 
 #define ROOT 0
 #define L_CHILD 1
@@ -45,19 +50,22 @@ public:
 		release(branchType);printf("\n");
 	}
 
-	/*
+	
 	template <typename T> static void p(BST<T>&); //BST
 	template <typename T> static void p(AVL<T>&); //AVL
-	template <typename T> static void p(RedBlack<T>&); //RedBlack
 	template <typename T> static void p(Splay<T>&); //Splay
+	template <typename T> static void p(BTree<T>&); //BTree
+	/*
+	template <typename T> static void p(RedBlack<T>&); //RedBlack
 	template <typename T> static void p(Quadlist<T>&); //Quadlist
 	template <typename K, typename V> static void p(Skiplist<K, V>&); //Skiplist
 	template <typename K, typename V> static void p(Hashtable<K, V>&); //Hashtable
 	template <typename T> static void p(PQ_List<T>&); //PQ_List
 	template <typename T> static void p(PQ_ComplHeap<T>&); //PQ_ComplHeap
 	template <typename T> static void p(PQ_LeftHeap<T>&); //PQ_LeftHeap
-	template <typename Tv, typename Te> static void p(GraphMatrix<Tv, Te>&); //Graph
 	*/
+	//template <typename Tv, typename Te> static void p(GraphMatrix<Tv, Te>&); //Graph
+	
 }; // UniPrint
 
 inline void UniPrint::p(int e) { printf("%04d", e); }
@@ -104,6 +112,11 @@ static void printBinTree(BinNodePosi(T) bt, int depth, int type, Bitmap* bType)
 
 }
 
+
+/******************************************************************************************
+* BTree¥Ú”°
+******************************************************************************************/
+#include"print_btree.h"
 
 template <typename T> void UniPrint::p(BinNode<T> & node)
 {

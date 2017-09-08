@@ -421,7 +421,7 @@ public:
 	}
 
 // Joseph Kruskal 的极小支撑树算法 习题[6-29] - [6-31]
-	List<Edge<Te>> SortEdge()
+	/*List<Edge<Te>> SortEdge()
 	{
 		
 	}
@@ -429,7 +429,7 @@ public:
 	void Kruakal(List<Edge<Te>> list)
 	{
 		
-	}
+	}*/
 
 
 };

@@ -72,10 +72,10 @@ bool paren(const char exp[])
 	return S.empty(); //整个表达式扫描过后，栈中若残留（左）括号，则不匹配，否则（栈空）匹配
 }
 
-int main1(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
 	// 测试栈
-	srand((unsigned int)time(NULL)); // 设置种子
+	srand(static_cast<unsigned int>(time(nullptr))); // 设置种子
 	testStack<int>(10);
 	// 测试括号匹配
 	char expression[] = "a / (b [ i - 1 ] + c [ i + 1 ] [ j - 1 ] ) * 2";

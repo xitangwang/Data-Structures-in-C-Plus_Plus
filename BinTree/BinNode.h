@@ -51,7 +51,7 @@ typedef enum { RB_RED, RB_BLACK } RBColor;	//红黑数节点颜色
 template <typename T> struct BinNode
 {
 	T data;
-	BinNodePosi(T) parent; BinNodePosi(T) lChild; BinNodePosi(T) rChild;
+	BinNodePosi(T) parent; BinNod  ePosi(T) lChild; BinNodePosi(T) rChild;
 	int height;
 	int npl;
 	RBColor color;
@@ -131,6 +131,7 @@ template <typename T> struct BinNode
 			break;
 		default:travPre_L2(this, visit);
 			break;
+
 		}
 	}
 	//子树中续遍历

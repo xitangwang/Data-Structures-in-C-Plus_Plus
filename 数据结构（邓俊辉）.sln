@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "杂项", "杂项\杂项.vcxproj", "{A88182B4-4D00-49A6-B739-FA71A86152A1}"
 EndProject
@@ -54,6 +54,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Entry", "Entry\Entry.vcxproj", "{FCFCFF2F-E60B-4082-A957-43CEB7DE3E49}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HashTable", "HashTable\HashTable.vcxproj", "{13ED9913-637F-4BA1-B74E-A86CC83F196B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PriorityQueue", "PriorityQueue\PriorityQueue.vcxproj", "{34C5F6B3-1758-42DB-AA47-A952C52C6773}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -273,8 +275,19 @@ Global
 		{13ED9913-637F-4BA1-B74E-A86CC83F196B}.Release|x64.Build.0 = Release|x64
 		{13ED9913-637F-4BA1-B74E-A86CC83F196B}.Release|x86.ActiveCfg = Release|Win32
 		{13ED9913-637F-4BA1-B74E-A86CC83F196B}.Release|x86.Build.0 = Release|Win32
+		{34C5F6B3-1758-42DB-AA47-A952C52C6773}.Debug|x64.ActiveCfg = Debug|x64
+		{34C5F6B3-1758-42DB-AA47-A952C52C6773}.Debug|x64.Build.0 = Debug|x64
+		{34C5F6B3-1758-42DB-AA47-A952C52C6773}.Debug|x86.ActiveCfg = Debug|Win32
+		{34C5F6B3-1758-42DB-AA47-A952C52C6773}.Debug|x86.Build.0 = Debug|Win32
+		{34C5F6B3-1758-42DB-AA47-A952C52C6773}.Release|x64.ActiveCfg = Release|x64
+		{34C5F6B3-1758-42DB-AA47-A952C52C6773}.Release|x64.Build.0 = Release|x64
+		{34C5F6B3-1758-42DB-AA47-A952C52C6773}.Release|x86.ActiveCfg = Release|Win32
+		{34C5F6B3-1758-42DB-AA47-A952C52C6773}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F51F8521-DDBB-439E-8CE5-9DBCE032FB04}
 	EndGlobalSection
 EndGlobal

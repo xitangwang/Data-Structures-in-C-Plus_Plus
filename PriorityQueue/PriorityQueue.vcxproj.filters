@@ -15,25 +15,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="vector.h">
+    <ClInclude Include="PQ.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="vector_constructor_by_copying.h">
+    <ClInclude Include="PQ_ComplHeap.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="vector_expand.h">
+    <ClInclude Include="PQ_LeftHeap.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Fib.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="vector.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

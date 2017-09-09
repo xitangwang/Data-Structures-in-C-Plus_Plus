@@ -7,6 +7,7 @@
 
 #pragma once
 #include"Fib.h"
+#include "../PriorityQueue/PQ_ComplHeap.h"
 #include <cassert>
 #include <cstdlib>
 
@@ -161,6 +162,7 @@ public:
 	 * \param hi 
 	 */
 	void sort(Rank lo, Rank hi);
+	void heapSort();
 	//’˚ÃÂ≈≈–Ú
 	void sort() { sort(0, _size); }
 	//∂‘[lo,hi]÷√¬“
@@ -402,6 +404,15 @@ void Vector<T>::sort(Rank lo, Rank hi)
 	default:quickSort(lo, hi);
 		break;
 	}
+}
+
+template <typename T>
+void Vector<T>::heapSort()
+{
+	hi = _elem;
+	PQ_ComplHeap<T> H(0,_elem - 1);
+	while (!H.empty())
+		_elem[--hi] = H.delMax();
 }
 
 template <typename T>

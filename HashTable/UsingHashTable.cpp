@@ -16,10 +16,10 @@ void BucketSort(int min,int max,int array[],int n)
 	HashTable<int, int> hash(max - min);
 	for (int i = 0; i < n; ++i)
 	{
-		hash.put(hashCode(i), array[i]);
+		hash.put(array[i], array[i]);
 	}
 	int index = 0;
-	for (int i = 0; i < hash.size(); ++i)
+	for (int i = 0; index < n; ++i)
 	{
 		if(hash.get(i) != nullptr)
 		{

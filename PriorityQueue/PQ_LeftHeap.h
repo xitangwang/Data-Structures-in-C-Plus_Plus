@@ -59,8 +59,9 @@ inline T PQ_LeftHeap<T>::delMax()
 {
 	BinNodePosi(T) lHeap = _root->lChild;
 	BinNodePosi(T) rHeap = _root->rChild;
-	T e = _root->data;delete _root;--_size;
+	T e = _root->data;delete _root;--_size; 
 	merge(lHeap, rHeap);
 	if (_root) _root->parent = nullptr;
 	return e;
 }
+
